@@ -9,7 +9,7 @@ Documentation
 You can change jQuery version in parameters:
 
     jquery:
-        version: 1.11.0
+        version: 1.11.1
 
 Installation
 ------------
