@@ -1,0 +1,6 @@
+services:
+    evheniy.twig.jquery_extension:
+        class: Evheniy\JqueryBundle\Twig\JqueryExtension
+        arguments: [@service_container]
+        tags:
+            - { name: twig.extension }

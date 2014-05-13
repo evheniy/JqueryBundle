@@ -14,6 +14,25 @@ You can change jQuery version in parameters:
 Installation
 ------------
 
+    AppKernel:
+        public function registerBundles()
+            {
+                $bundles = array(
+                    ...
+                    new Evheniy\JqueryBundle\JqueryBundle(),
+                );
+                ...
+
+    config.yml:
+        #JqueryBundle
+        jquery: ~
+
+        or
+
+        jquery:
+            version: 1.11.1
+
+
     {% include "JqueryBundle:Jquery:jquery.html.twig" %}
 
 License
