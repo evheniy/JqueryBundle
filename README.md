@@ -1,24 +1,24 @@
 JqueryBundle
 =================
 
-This bundle provides jQuery with Symfony2
+This bundle provides jQuery in Symfony2 from CDN ajax.googleapis.com
 
 Documentation
 -------------
 
-You can change jQuery version in parameters:
+You can change jQuery version:
 
     jquery:
         version: 1.11.1
 
-You can use old html version in parameters:
+You can use old html version:
 
     jquery:
         html5: false
 
 Default value: true. If false script will be with type="text/javascript"
 
-You can use async loading in parameters:
+You can use async loading:
 
     jquery:
         async: true
