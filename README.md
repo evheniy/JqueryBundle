@@ -11,6 +11,20 @@ You can change jQuery version in parameters:
     jquery:
         version: 1.11.1
 
+You can use old html version in parameters:
+
+    jquery:
+        html5: false
+
+Default value: true. If false script will be with type="text/javascript"
+
+You can use async loading in parameters:
+
+    jquery:
+        async: true
+
+Default value: false. If true script will be with async="async"
+
 Installation
 ------------
 
@@ -29,8 +43,11 @@ Installation
 
         or
 
+        #JqueryBundle
         jquery:
             version: 1.11.1
+            html5: true
+            async: false
 
 
     {% include "JqueryBundle:Jquery:jquery.html.twig" %}
