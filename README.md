@@ -65,6 +65,8 @@ config.yml:
         html5: true
         async: false
 
+And Assetic Configuration in config.yml:
+
     #Assetic Configuration
     assetic:
         bundles: [ JqueryBundle ]
