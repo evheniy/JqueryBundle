@@ -77,6 +77,10 @@ Add this string to your layout
 
     {% include "JqueryBundle:Jquery:jquery.html.twig" %}
 
+The last step
+
+    app/console assetic:dump --env=prod --no-debug
+
 License
 -------
 
