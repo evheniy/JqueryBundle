@@ -76,7 +76,7 @@ Add this string to your layout
 License
 -------
 
-This bundle is under the [MIT][4] license. See the complete license in the bundle:
+This bundle is under the [MIT][4] license.
 
 [MakeDev.org][1]
 
