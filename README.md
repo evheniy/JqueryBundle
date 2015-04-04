@@ -80,7 +80,7 @@ License
 
 This bundle is under the [MIT][4] license.
 
-[MakeDev.org][1]
+[Документация на русском языке][1]
 
 [Jquery][2] and [Google Hosted Libraries][3]
 
