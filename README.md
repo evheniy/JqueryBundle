@@ -76,12 +76,11 @@ Add this string to your layout
 License
 -------
 
-This bundle is under the MIT license. See the complete license in the bundle:
+This bundle is under the [MIT][4] license. See the complete license in the bundle:
 
-[Resources/meta/LICENSE][4]
 [MakeDev.org][1]
-[Jquery][2]
-[Google Hosted Libraries][3]
+
+[Jquery][2] and [Google Hosted Libraries][3]
 
 [1]:  http://makedev.org/articles/symfony/bundles/jquery_bundle.html
 [2]:  https://jquery.com/
