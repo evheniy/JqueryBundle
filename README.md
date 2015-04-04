@@ -65,8 +65,6 @@ config.yml:
         html5: true
         async: false
 
-Assetic Configuration
-
     #Assetic Configuration
     assetic:
         bundles: [ JqueryBundle ]
@@ -80,12 +78,15 @@ License
 
 This bundle is under the MIT license. See the complete license in the bundle:
 
-    Resources/meta/LICENSE
+[Resources/meta/LICENSE][4]
 
 [MakeDev.org][1]
+
 [Jquery][2]
+
 [Google Hosted Libraries][3]
 
 [1]:  http://makedev.org/articles/symfony/bundles/jquery_bundle.html
 [2]:  https://jquery.com/
 [3]:  https://developers.google.com/speed/libraries/devguide#jquery
+[4]:  https://github.com/evheniy/JqueryBundle/blob/master/Resources/meta/LICENSE
