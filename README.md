@@ -1,6 +1,8 @@
 JqueryBundle
 =================
 
+[![knpbundles.com](http://knpbundles.com/evheniy/JqueryBundle/badge)](http://knpbundles.com/evheniy/JqueryBundle)
+
 This bundle provides jQuery in Symfony2 from CDN ajax.googleapis.com
 
 Documentation
