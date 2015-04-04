@@ -1,0 +1,5 @@
+jquery:
+    version: 1.11.2
+    local: jquery-1.11.2.min.js
+    html5: true
+    async: false

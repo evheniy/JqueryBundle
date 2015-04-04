@@ -1,1 +1,4 @@
+{%- javascripts '%jquery.local%' -%}
 <script{%- if jquery.html5 == false %} type="text/javascript"{%- endif %} src="//ajax.googleapis.com/ajax/libs/jquery/{{- jquery.version -}}/jquery.min.js"{%- if jquery.async %} async="async"{%- endif -%}></script>
+<script>window.jQuery || document.write('<script{%- if jquery.html5 == false %} type="text/javascript"{%- endif %} src="{{- asset_url -}}"{%- if jquery.async %} async="async"{%- endif -%}>\x3C/script>');</script>
+{%- endjavascripts -%}

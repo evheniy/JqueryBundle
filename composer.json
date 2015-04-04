@@ -1,5 +1,6 @@
 {
     "name": "evheniy/jquery-bundle",
+    "version": "1.0",
     "description": "The JqueryBundle adds the ability to add latest jQuery to your application.",
     "keywords": ["jQuery", "Symfony", "latest"],
     "type": "symfony-bundle",

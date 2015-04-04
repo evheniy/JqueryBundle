@@ -30,11 +30,7 @@ class JqueryExtension extends \Twig_Extension
     public function getGlobals()
     {
         return array(
-            'jquery' => array(
-                'version' => $this->container->getParameter('jquery.version'),
-                'html5'   => $this->container->getParameter('jquery.html5'),
-                'async'   => $this->container->getParameter('jquery.async'),
-            )
+            'jquery' => $this->container->getParameter('jquery')
         );
     }
 

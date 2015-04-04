@@ -9,7 +9,13 @@ Documentation
 You can change jQuery version:
 
     jquery:
-        version: 1.11.1
+        version: 1.11.2
+        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+
+You should set jQuery local version (it helps if Google CDN doesn't work):
+
+    jquery:
+        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
 
 You can use old html version:
 
@@ -28,27 +34,44 @@ Default value: false. If true script will be with async="async"
 Installation
 ------------
 
-    AppKernel:
-        public function registerBundles()
-            {
-                $bundles = array(
-                    ...
-                    new Evheniy\JqueryBundle\JqueryBundle(),
-                );
+    $ composer require evheniy/jquery-bundle "1.*"
+
+Or add to composer.json
+
+    "evheniy/jquery-bundle": "1.*"
+
+AppKernel:
+
+    public function registerBundles()
+        {
+            $bundles = array(
                 ...
+                new Evheniy\JqueryBundle\JqueryBundle(),
+            );
+            ...
 
-    config.yml:
-        #JqueryBundle
-        jquery: ~
+config.yml:
 
-        or
+    #JqueryBundle
+    jquery:
+        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
 
-        #JqueryBundle
-        jquery:
-            version: 1.11.1
-            html5: true
-            async: false
+    or
 
+    #JqueryBundle
+    jquery:
+        version: 1.11.2
+        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+        html5: true
+        async: false
+
+Assetic Configuration
+
+    #Assetic Configuration
+    assetic:
+        bundles: [ JqueryBundle ]
+
+Add this string to your layout
 
     {% include "JqueryBundle:Jquery:jquery.html.twig" %}
 
@@ -60,5 +83,9 @@ This bundle is under the MIT license. See the complete license in the bundle:
     Resources/meta/LICENSE
 
 [MakeDev.org][1]
+[Jquery][2]
+[Google Hosted Libraries][3]
 
-[1]:  http://makedev.org/
+[1]:  http://makedev.org/articles/symfony/bundles/jquery_bundle.html
+[2]:  https://jquery.com/
+[3]:  https://developers.google.com/speed/libraries/devguide#jquery
