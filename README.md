@@ -3,6 +3,8 @@ JqueryBundle
 
 [![knpbundles.com](http://knpbundles.com/evheniy/JqueryBundle/badge)](http://knpbundles.com/evheniy/JqueryBundle)
 
+[![Latest Stable Version](https://poser.pugx.org/evheniy/jquery-bundle/v/stable.svg)](https://packagist.org/packages/evheniy/jquery-bundle) [![Total Downloads](https://poser.pugx.org/evheniy/jquery-bundle/downloads.svg)](https://packagist.org/packages/evheniy/jquery-bundle) [![Latest Unstable Version](https://poser.pugx.org/evheniy/jquery-bundle/v/unstable.svg)](https://packagist.org/packages/evheniy/jquery-bundle) [![License](https://poser.pugx.org/evheniy/jquery-bundle/license.svg)](https://packagist.org/packages/evheniy/jquery-bundle)
+
 This bundle provides jQuery in Symfony2 from CDN ajax.googleapis.com
 
 Documentation
