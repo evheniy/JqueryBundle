@@ -24,6 +24,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('local')->defaultValue('@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js')->end()
                 ->booleanNode('html5')->defaultTrue()->end()
                 ->booleanNode('async')->defaultFalse()->end()
+                ->scalarNode('cdn')->defaultValue('')->end()
             ->end();
 
         return $treeBuilder;

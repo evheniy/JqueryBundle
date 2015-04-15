@@ -3,3 +3,4 @@ jquery:
     local: jquery-1.11.0.min.js
     html5: false
     async: true
+    cdn: //cdn.site.com

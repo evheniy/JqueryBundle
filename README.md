@@ -38,6 +38,13 @@ You can use async loading:
 
 Default value: false. If true script will be with async="async"
 
+You can use local CDN:
+
+    jquery:
+        cdn: //cdn.site.com #with protocol
+
+Default value is empty
+
 Installation
 ------------
 
@@ -70,6 +77,7 @@ config.yml:
         local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
         html5: true
         async: false
+        cdn: //cdn.site.com
 
 And Assetic Configuration in config.yml:
 

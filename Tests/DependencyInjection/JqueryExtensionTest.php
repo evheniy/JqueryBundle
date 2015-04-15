@@ -83,6 +83,7 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->container->getParameter('jquery.local'), 'jquery-1.11.0.min.js');
         $this->assertFalse($this->container->getParameter('jquery')['html5']);
         $this->assertTrue($this->container->getParameter('jquery')['async']);
+        $this->assertEquals($this->container->getParameter('jquery')['cdn'], '//cdn.site.com');
     }
 
     /**
@@ -94,5 +95,6 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->container->compile();
         $this->assertTrue($this->container->hasParameter('jquery'));
         $this->assertEquals($this->container->getParameter('jquery')['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
+        $this->assertEquals($this->container->getParameter('jquery')['cdn'], '');
     }
 }
