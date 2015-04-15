@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('version')->defaultValue('1.11.2')->end()
-                ->scalarNode('local')->isRequired()->cannotBeEmpty()->end()
+                ->scalarNode('local')->defaultValue('@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js')->end()
                 ->booleanNode('html5')->defaultTrue()->end()
                 ->booleanNode('async')->defaultFalse()->end()
             ->end();

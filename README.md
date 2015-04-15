@@ -14,12 +14,15 @@ You can change jQuery version:
 
     jquery:
         version: 1.11.2
-        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+        
+Default value: 1.11.2
 
-You should set jQuery local version (it helps if Google CDN doesn't work):
+You can set jQuery local version (it helps if Google CDN doesn't work):
 
     jquery:
         local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+        
+Default value: '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js'
 
 You can use old html version:
 
@@ -57,8 +60,7 @@ AppKernel:
 config.yml:
 
     #JqueryBundle
-    jquery:
-        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+    jquery: ~
 
     or
 

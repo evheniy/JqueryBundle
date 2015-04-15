@@ -49,15 +49,11 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testWithoutConfiguration()
     {
-        $this->setExpectedException(
-            'Symfony\Component\Config\Definition\Exception\InvalidConfigurationException',
-            'The child node "local" at path "jquery" must be configured.'
-        );
-
         $this->container->loadFromExtension($this->extension->getAlias());
         $this->container->compile();
 
-        $this->assertFalse($this->container->hasParameter('jquery'));
+        $this->assertTrue($this->container->hasParameter('jquery'));
+        $this->assertEquals($this->container->getParameter('jquery')['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
     }
 
     /**
@@ -94,13 +90,9 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
      */
     public function testWithOutLocal()
     {
-        $this->setExpectedException(
-            'Symfony\Component\Config\Definition\Exception\InvalidConfigurationException',
-            'The child node "local" at path "jquery" must be configured.'
-        );
-
         $this->loadConfiguration($this->container, 'withOutLocal');
         $this->container->compile();
-        $this->assertFalse($this->container->hasParameter('jquery'));
+        $this->assertTrue($this->container->hasParameter('jquery'));
+        $this->assertEquals($this->container->getParameter('jquery')['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
     }
-} 
+}

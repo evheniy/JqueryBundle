@@ -16,7 +16,8 @@ use Symfony\Component\Config\Definition\Processor;
 class JqueryExtension extends Extension
 {
     /**
-     * @see Symfony\Component\DependencyInjection\Extension.ExtensionInterface::load()
+     * @param array            $configs
+     * @param ContainerBuilder $container
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -30,8 +31,7 @@ class JqueryExtension extends Extension
     }
 
     /**
-     * @see Symfony\Component\DependencyInjection\Extension.ExtensionInterface::getAlias()
-     * @codeCoverageIgnore
+     * @return string
      */
     public function getAlias()
     {
