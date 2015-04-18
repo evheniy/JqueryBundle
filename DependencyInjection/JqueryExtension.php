@@ -40,7 +40,13 @@ class JqueryExtension extends Extension
     {
         if (!empty($cdn)) {
             $url = parse_url($cdn);
-            $cdn = !empty($url['host']) ? $url['host'] : $url['path'];
+            if (!empty($url['host'])) {
+                $cdn = $url['host'];
+            } else {
+                $cdn = current(
+                    array_filter(preg_split('/[^a-z0-9\.]+/', $url['path']))
+                );
+            }
         }
 
         return $cdn;
