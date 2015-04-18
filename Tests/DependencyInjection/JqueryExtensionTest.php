@@ -65,7 +65,10 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->container->compile();
 
         $this->assertTrue($this->container->hasParameter('jquery'));
-        $this->assertEquals($this->container->getParameter('jquery')['local'], 'jquery-1.11.2.min.js');
+        $jquery = $this->container->getParameter('jquery');
+        $this->assertNotEmpty($jquery['local']);
+        $this->assertEquals($jquery['local'], 'jquery-1.11.2.min.js');
+        $this->assertTrue($this->container->hasParameter('jquery.local'));
         $this->assertEquals($this->container->getParameter('jquery.local'), 'jquery-1.11.2.min.js');
     }
 
@@ -79,11 +82,14 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($this->container->hasParameter('jquery'));
         $this->assertTrue($this->container->hasParameter('jquery.local'));
-        $this->assertEquals($this->container->getParameter('jquery')['local'], 'jquery-1.11.0.min.js');
+        $jquery = $this->container->getParameter('jquery');
+        $this->assertNotEmpty($jquery['local']);
+        $this->assertEquals($jquery['local'], 'jquery-1.11.0.min.js');
         $this->assertEquals($this->container->getParameter('jquery.local'), 'jquery-1.11.0.min.js');
-        $this->assertFalse($this->container->getParameter('jquery')['html5']);
-        $this->assertTrue($this->container->getParameter('jquery')['async']);
-        $this->assertEquals($this->container->getParameter('jquery')['cdn'], '//cdn.site.com');
+        $this->assertFalse($jquery['html5']);
+        $this->assertTrue($jquery['async']);
+        $this->assertNotEmpty($jquery['cdn']);
+        $this->assertEquals($jquery['cdn'], 'cdn.site.com');
     }
 
     /**
@@ -94,7 +100,27 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->loadConfiguration($this->container, 'withOutLocal');
         $this->container->compile();
         $this->assertTrue($this->container->hasParameter('jquery'));
-        $this->assertEquals($this->container->getParameter('jquery')['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
-        $this->assertEquals($this->container->getParameter('jquery')['cdn'], '');
+        $jquery = $this->container->getParameter('jquery');
+        $this->assertNotEmpty($jquery['local']);
+        $this->assertEquals($jquery['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
+        $this->assertEmpty($jquery['cdn']);
+        $this->assertEquals($jquery['cdn'], '');
+    }
+
+    /**
+     * Test filterCdn method
+     */
+    public function testFilterCdn()
+    {
+        $reflectionClass = new \ReflectionClass('\Evheniy\JqueryBundle\DependencyInjection\JqueryExtension');
+        $method = $reflectionClass->getMethod('filterCdn');
+        $method->setAccessible(true);
+        $this->assertEquals($method->invoke($this->extension, ''), '');
+        $this->assertEquals($method->invoke($this->extension, 'cdn.site.com'), 'cdn.site.com');
+        $this->assertEquals($method->invoke($this->extension, '//cdn.site.com'), 'cdn.site.com');
+        $this->assertEquals($method->invoke($this->extension, 'http://cdn.site.com'), 'cdn.site.com');
+        $this->assertEquals($method->invoke($this->extension, 'http://cdn.site.com/'), 'cdn.site.com');
+        $this->assertEquals($method->invoke($this->extension, 'https://cdn.site.com'), 'cdn.site.com');
+        $this->assertEquals($method->invoke($this->extension, 'https://cdn.site.com/'), 'cdn.site.com');
     }
 }

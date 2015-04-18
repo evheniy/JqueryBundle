@@ -24,10 +24,26 @@ class JqueryExtension extends Extension
         $processor = new Processor();
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
+        $config['cdn'] = $this->filterCdn($config['cdn']);
         $container->setParameter('jquery', $config);
         $container->setParameter('jquery.local', $config['local']);
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+    }
+
+    /**
+     * @param $cdn
+     *
+     * @return mixed
+     */
+    protected function filterCdn($cdn)
+    {
+        if (!empty($cdn)) {
+            $url = parse_url($cdn);
+            $cdn = !empty($url['host']) ? $url['host'] : $url['path'];
+        }
+
+        return $cdn;
     }
 
     /**

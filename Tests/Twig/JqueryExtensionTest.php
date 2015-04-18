@@ -36,10 +36,14 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
     public function testWithId()
     {
         $this->container->setParameter('jquery', array('local' => 'test'));
-
         $this->assertTrue($this->container->hasParameter('jquery'));
-        $this->assertEquals($this->container->getParameter('jquery')['local'], 'test');
-        $this->assertEquals($this->extension->getGlobals()['jquery']['local'], 'test');
+        $jquery = $this->container->getParameter('jquery');
+        $this->assertNotEmpty($jquery['local']);
+        $this->assertEquals($jquery['local'], 'test');
+        $globals = $this->extension->getGlobals();
+        $jquery = $globals['jquery'];
+        $this->assertNotEmpty($jquery['local']);
+        $this->assertEquals($jquery['local'], 'test');
     }
 
     /**
@@ -52,7 +56,7 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
             'Exception',
             'You have requested a non-existent parameter "jquery".'
         );
-        $this->assertTrue(empty($this->extension->getGlobals()));
+        $this->assertEmpty($this->extension->getGlobals());
     }
 
     /**
