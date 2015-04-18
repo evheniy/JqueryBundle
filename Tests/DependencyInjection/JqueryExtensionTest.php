@@ -51,9 +51,10 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $this->container->loadFromExtension($this->extension->getAlias());
         $this->container->compile();
-
         $this->assertTrue($this->container->hasParameter('jquery'));
-        $this->assertEquals($this->container->getParameter('jquery')['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
+        $jquery = $this->container->getParameter('jquery');
+        $this->assertNotEmpty($jquery['local']);
+        $this->assertEquals($jquery['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
     }
 
     /**
