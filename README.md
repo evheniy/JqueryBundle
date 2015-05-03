@@ -91,7 +91,7 @@ And Assetic Configuration in config.yml:
 
 Add this string to your layout
 
-    {% include "JqueryBundle:Jquery:jquery.html.twig" %}
+    {% include "JqueryBundle::jquery.html.twig" %}
 
 The last step
 

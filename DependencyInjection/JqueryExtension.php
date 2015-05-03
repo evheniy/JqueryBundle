@@ -2,6 +2,7 @@
 
 namespace Evheniy\JqueryBundle\DependencyInjection;
 
+use Evheniy\JqueryBundle\Helper\CdnHelper;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -24,32 +25,11 @@ class JqueryExtension extends Extension
         $processor = new Processor();
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
-        $config['cdn'] = $this->filterCdn($config['cdn']);
+        $config['cdn'] = CdnHelper::createInstance()->filterCdn($config['cdn']);
         $container->setParameter('jquery', $config);
         $container->setParameter('jquery.local', $config['local']);
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
-    }
-
-    /**
-     * @param $cdn
-     *
-     * @return mixed
-     */
-    protected function filterCdn($cdn)
-    {
-        if (!empty($cdn)) {
-            $url = parse_url($cdn);
-            if (!empty($url['host'])) {
-                $cdn = $url['host'];
-            } else {
-                $cdn = current(
-                    array_filter(preg_split('/[^a-z0-9\.]+/', $url['path']))
-                );
-            }
-        }
-
-        return $cdn;
     }
 
     /**

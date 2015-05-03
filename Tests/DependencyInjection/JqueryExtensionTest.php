@@ -90,7 +90,7 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($jquery['html5']);
         $this->assertTrue($jquery['async']);
         $this->assertNotEmpty($jquery['cdn']);
-        $this->assertEquals($jquery['cdn'], 'cdn.site.com');
+        $this->assertEquals($jquery['cdn'], '//cdn.site.com');
     }
 
     /**
@@ -106,22 +106,5 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($jquery['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
         $this->assertEmpty($jquery['cdn']);
         $this->assertEquals($jquery['cdn'], '');
-    }
-
-    /**
-     * Test filterCdn method
-     */
-    public function testFilterCdn()
-    {
-        $reflectionClass = new \ReflectionClass('\Evheniy\JqueryBundle\DependencyInjection\JqueryExtension');
-        $method = $reflectionClass->getMethod('filterCdn');
-        $method->setAccessible(true);
-        $this->assertEquals($method->invoke($this->extension, ''), '');
-        $this->assertEquals($method->invoke($this->extension, 'cdn.site.com'), 'cdn.site.com');
-        $this->assertEquals($method->invoke($this->extension, '//cdn.site.com'), 'cdn.site.com');
-        $this->assertEquals($method->invoke($this->extension, 'http://cdn.site.com'), 'cdn.site.com');
-        $this->assertEquals($method->invoke($this->extension, 'http://cdn.site.com/'), 'cdn.site.com');
-        $this->assertEquals($method->invoke($this->extension, 'https://cdn.site.com'), 'cdn.site.com');
-        $this->assertEquals($method->invoke($this->extension, 'https://cdn.site.com/'), 'cdn.site.com');
     }
 }
