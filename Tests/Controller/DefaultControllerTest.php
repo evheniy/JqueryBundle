@@ -12,7 +12,7 @@ use Evheniy\JqueryBundle\DependencyInjection\JqueryExtension as JqueryExtensionD
  *
  * @package Evheniy\JqueryBundle\Tests\Controller
  */
-class DefaultControllerTest  extends \PHPUnit_Framework_TestCase
+class DefaultControllerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      *

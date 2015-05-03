@@ -11,7 +11,7 @@ class CdnHelper
     /**
      * @return CdnHelper
      */
-    static public function createInstance()
+    public static function createInstance()
     {
         return new self;
     }
