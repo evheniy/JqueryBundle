@@ -21,7 +21,7 @@ class DefaultControllerTest extends \PHPUnit_Framework_TestCase
     {
         $twig = new \Twig_Environment(
             new \Twig_Loader_Array(
-                array('JqueryBundle::jquery.html.twig' => file_get_contents(dirname(__FILE__) . '/../../Resources/views/jquery.html.twig'))
+                array('JqueryBundle:Jquery:jquery.html.twig' => file_get_contents(dirname(__FILE__) . '/../../Resources/views/Jquery/jquery.html.twig'))
             )
         );
         $container = new ContainerBuilder();
@@ -38,7 +38,7 @@ class DefaultControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testWithCdn()
     {
-        $this->assertRegExp('/src=\"\/\/cdn\.site\.comjs\/29ad352\.js\"/', $this->getTwig(array(array('cdn' => 'cdn.site.com')))->render('JqueryBundle::jquery.html.twig'));
+        $this->assertRegExp('/src=\"\/\/cdn\.site\.comjs\/29ad352\.js\"/', $this->getTwig(array(array('cdn' => 'cdn.site.com')))->render('JqueryBundle:Jquery:jquery.html.twig'));
     }
 
     /**
@@ -46,6 +46,6 @@ class DefaultControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testWithOutCdn()
     {
-        $this->assertRegExp('/src=\"js\/29ad352\.js\"/', $this->getTwig(array(array()))->render('JqueryBundle::jquery.html.twig'));
+        $this->assertRegExp('/src=\"js\/29ad352\.js\"/', $this->getTwig(array(array()))->render('JqueryBundle:Jquery:jquery.html.twig'));
     }
 }

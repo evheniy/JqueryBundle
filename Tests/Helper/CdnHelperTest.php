@@ -29,9 +29,9 @@ class CdnHelperTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($cdnHelper->filterCdn('/'), '');
         $this->assertEquals($cdnHelper->filterCdn('cdn.site.com'), '//cdn.site.com');
         $this->assertEquals($cdnHelper->filterCdn('//cdn.site.com'), '//cdn.site.com');
-        $this->assertEquals($cdnHelper->filterCdn( 'http://cdn.site.com'), '//cdn.site.com');
+        $this->assertEquals($cdnHelper->filterCdn('http://cdn.site.com'), '//cdn.site.com');
         $this->assertEquals($cdnHelper->filterCdn('http://cdn.site.com/'), '//cdn.site.com');
-        $this->assertEquals($cdnHelper->filterCdn( 'https://cdn.site.com'), '//cdn.site.com');
+        $this->assertEquals($cdnHelper->filterCdn('https://cdn.site.com'), '//cdn.site.com');
         $this->assertEquals($cdnHelper->filterCdn('https://cdn.site.com/'), '//cdn.site.com');
     }
 }
