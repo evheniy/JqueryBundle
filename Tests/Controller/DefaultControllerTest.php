@@ -40,7 +40,7 @@ class DefaultControllerTest extends WebTestCase
      */
     public function testWithCdn()
     {
-        $this->assertRegExp('/src=\"\/\/cdn\.site\.comjs\/jquery.min.js\"/', $this->getTwig(array(array('cdn' => 'cdn.site.com')))->render('JqueryBundle:Jquery:jquery.html.twig'));
+        $this->assertRegExp('/src=\"\/\/cdn\.site\.comjs\/jquery-1.11.3.min.js\"/', $this->getTwig(array(array('cdn' => 'cdn.site.com')))->render('JqueryBundle:Jquery:jquery.html.twig'));
     }
 
     /**
@@ -48,7 +48,7 @@ class DefaultControllerTest extends WebTestCase
      */
     public function testWithOutCdn()
     {
-        $this->assertRegExp('/src=\"js\/jquery.min\.js\"/', $this->getTwig(array(array()))->render('JqueryBundle:Jquery:jquery.html.twig'));
+        $this->assertRegExp('/src=\"js\/jquery-1.11.3.min\.js\"/', $this->getTwig(array(array()))->render('JqueryBundle:Jquery:jquery.html.twig'));
     }
 
     /**
