@@ -7,7 +7,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Evheniy\JqueryBundle\Twig\JqueryExtension;
 use Evheniy\JqueryBundle\DependencyInjection\JqueryExtension as JqueryExtensionDI;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class DefaultControllerTest
@@ -59,8 +58,8 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
         $jquery = $client->getContainer()->getParameter('jquery');
         $headers = get_headers('http://ajax.googleapis.com/ajax/libs/jquery/' . $jquery['version'] . '/jquery.min.js');
-        $this->assertTrue(strpos($headers[0], strval(Response::HTTP_OK)) !== false);
+        $this->assertTrue(strpos($headers[0], '200') !== false);
         $headers = get_headers('https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery['version'] . '/jquery.min.js');
-        $this->assertTrue(strpos($headers[0], strval(Response::HTTP_OK)) !== false);
+        $this->assertTrue(strpos($headers[0], '200') !== false);
     }
 }
