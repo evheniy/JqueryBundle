@@ -17,16 +17,16 @@ Documentation
 You can change jQuery version:
 
     jquery:
-        version: 1.11.2
+        version: 1.11.3
         
-Default value: 1.11.2
+Default value: 1.11.3
 
 You can set jQuery local version (it helps if Google CDN doesn't work):
 
     jquery:
-        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+        local: '@AppBundle/Resources/public/js/jquery-1.11.3.min.js'
         
-Default value: '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js'
+Default value: '@JqueryBundle/Resources/public/js/jquery-1.11.3.min.js'
 
 You can use old html version:
 
@@ -77,8 +77,8 @@ config.yml:
 
     #JqueryBundle
     jquery:
-        version: 1.11.2
-        local: '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+        version: 1.11.3
+        local: '@AppBundle/Resources/public/js/jquery-1.11.3.min.js'
         html5: true
         async: false
         cdn: cdn.site.com

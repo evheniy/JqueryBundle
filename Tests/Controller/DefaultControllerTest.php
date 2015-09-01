@@ -6,13 +6,15 @@ use Assetic\Factory\AssetFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Evheniy\JqueryBundle\Twig\JqueryExtension;
 use Evheniy\JqueryBundle\DependencyInjection\JqueryExtension as JqueryExtensionDI;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class DefaultControllerTest
  *
  * @package Evheniy\JqueryBundle\Tests\Controller
  */
-class DefaultControllerTest extends \PHPUnit_Framework_TestCase
+class DefaultControllerTest extends WebTestCase
 {
     /**
      *
@@ -38,7 +40,7 @@ class DefaultControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testWithCdn()
     {
-        $this->assertRegExp('/src=\"\/\/cdn\.site\.comjs\/29ad352\.js\"/', $this->getTwig(array(array('cdn' => 'cdn.site.com')))->render('JqueryBundle:Jquery:jquery.html.twig'));
+        $this->assertRegExp('/src=\"\/\/cdn\.site\.comjs\/jquery.min.js\"/', $this->getTwig(array(array('cdn' => 'cdn.site.com')))->render('JqueryBundle:Jquery:jquery.html.twig'));
     }
 
     /**
@@ -46,6 +48,19 @@ class DefaultControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testWithOutCdn()
     {
-        $this->assertRegExp('/src=\"js\/29ad352\.js\"/', $this->getTwig(array(array()))->render('JqueryBundle:Jquery:jquery.html.twig'));
+        $this->assertRegExp('/src=\"js\/jquery.min\.js\"/', $this->getTwig(array(array()))->render('JqueryBundle:Jquery:jquery.html.twig'));
+    }
+
+    /**
+     *
+     */
+    public function testFileCDN()
+    {
+        $client = static::createClient();
+        $jquery = $client->getContainer()->getParameter('jquery');
+        $headers = get_headers('http://ajax.googleapis.com/ajax/libs/jquery/' . $jquery['version'] . '/jquery.min.js');
+        $this->assertTrue(strpos($headers[0], strval(Response::HTTP_OK)) !== false);
+        $headers = get_headers('https://ajax.googleapis.com/ajax/libs/jquery/' . $jquery['version'] . '/jquery.min.js');
+        $this->assertTrue(strpos($headers[0], strval(Response::HTTP_OK)) !== false);
     }
 }

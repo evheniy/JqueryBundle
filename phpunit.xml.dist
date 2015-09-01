@@ -8,6 +8,7 @@
         >
     <php>
         <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_DIR" value="Tests/app" />
     </php>
 
     <testsuites>

@@ -54,7 +54,7 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->container->hasParameter('jquery'));
         $jquery = $this->container->getParameter('jquery');
         $this->assertNotEmpty($jquery['local']);
-        $this->assertEquals($jquery['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
+        $this->assertEquals($jquery['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.3.min.js');
     }
 
     /**
@@ -68,9 +68,9 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->container->hasParameter('jquery'));
         $jquery = $this->container->getParameter('jquery');
         $this->assertNotEmpty($jquery['local']);
-        $this->assertEquals($jquery['local'], 'jquery-1.11.2.min.js');
+        $this->assertEquals($jquery['local'], 'jquery-1.11.3.min.js');
         $this->assertTrue($this->container->hasParameter('jquery.local'));
-        $this->assertEquals($this->container->getParameter('jquery.local'), 'jquery-1.11.2.min.js');
+        $this->assertEquals($this->container->getParameter('jquery.local'), 'jquery-1.11.3.min.js');
     }
 
     /**
@@ -103,7 +103,7 @@ class JqueryExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->container->hasParameter('jquery'));
         $jquery = $this->container->getParameter('jquery');
         $this->assertNotEmpty($jquery['local']);
-        $this->assertEquals($jquery['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.2.min.js');
+        $this->assertEquals($jquery['local'], '@JqueryBundle/Resources/public/js/jquery-1.11.3.min.js');
         $this->assertEmpty($jquery['cdn']);
         $this->assertEquals($jquery['cdn'], '');
     }
