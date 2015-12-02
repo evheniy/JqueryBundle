@@ -3,3 +3,4 @@ composer.lock
 /.idea/
 /Tests/app/cache/*
 /Tests/app/logs/*
+/build
