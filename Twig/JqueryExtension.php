@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package Evheniy\JqueryBundle\Twig
  */
-class JqueryExtension extends \Twig_Extension
+class JqueryExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
     /**
      * @var \Symfony\Component\DependencyInjection\ContainerInterface
